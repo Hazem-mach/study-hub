@@ -35,7 +35,10 @@
     .section-head{margin-bottom:26px}
     .section-head h2{margin:0;font-size:clamp(2rem,4vw,3.2rem);line-height:1.16;letter-spacing:-.035em}
     .section-head .en{display:block;direction:ltr;unicode-bidi:isolate;text-align:right;font-size:.5em;color:var(--green-2);font-weight:580;margin-top:7px}
-    .course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .development-notice{margin:0 0 24px;padding:17px 19px;border:1px solid var(--line);border-radius:16px;background:#f2f5f2;color:var(--muted);font-size:.94rem;line-height:1.65}
+    .development-notice p{margin:0}
+    .development-notice .en{direction:ltr;unicode-bidi:isolate;text-align:left;margin-top:6px;color:#52615b;font-size:.94em}
+    .course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
     .course-card{display:flex;flex-direction:column;min-height:330px;padding:27px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:0 6px 24px rgba(23,63,53,.045);transition:border-color .16s ease,transform .16s ease,box-shadow .16s ease}
     .course-card:hover{border-color:#b8d0c7;transform:translateY(-2px);box-shadow:var(--shadow)}
     .card-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
@@ -51,11 +54,17 @@
     .course-card .button{align-self:flex-start;margin-top:auto}
     footer{border-top:1px solid var(--line);padding:27px 0 34px;color:var(--muted)}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .footer-copy{display:flex;flex-direction:column;gap:7px}
     .credit{margin:0;direction:ltr;unicode-bidi:isolate;font-size:.9rem}
+    .footer-contact{margin:0;color:#6b7974;font-size:.82rem;line-height:1.55}
+    .footer-contact span{display:block}
+    .footer-contact .en{direction:ltr;unicode-bidi:isolate;text-align:left}
+    .footer-contact a{color:var(--green-2);font-weight:720;text-underline-offset:3px}
     .socials{display:flex;align-items:center;gap:10px;direction:ltr}
     .socials .separator{color:#9da9a4;user-select:none}
     .social{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 .72rem;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--green);text-decoration:none;font-weight:720}
     .social:hover{border-color:#abc8bd;background:var(--mint)}
+    @media(max-width:980px){.course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:760px){
       .shell{width:min(100% - 28px,1120px)}.course-grid{grid-template-columns:1fr}.course-card{min-height:300px}.courses{padding:28px 0 58px}.footer-inner{align-items:flex-start;flex-direction:column}
     }
@@ -80,6 +89,10 @@
         <div class="section-head">
           <h2 id="courses-title">اختر مادتك<span class="en" dir="ltr" lang="en">Choose Your Course</span></h2>
         </div>
+        <aside class="development-notice" aria-label="رسالة التطوير">
+          <p dir="rtl">هذه النسخة الحالية مخصصة للمذاكرة والاستخدام الآن.<br>تحسينات إضافية وتطويرات أعمق قادمة لاحقًا، لكنها تحتاج وقت حتى تُنفذ بشكل صحيح.</p>
+          <p class="en" dir="ltr" lang="en">This version is ready for studying and use now.<br>More improvements and deeper enhancements are coming later, but they take time to build properly.</p>
+        </aside>
         <div class="course-grid" id="courseGrid" aria-live="polite"></div>
       </div>
     </section>
@@ -87,7 +100,10 @@
 
   <footer>
     <div class="footer-inner shell">
-      <p class="credit">Created by Hazem Al-Zahrani</p>
+      <div class="footer-copy">
+        <p class="credit">Created by Hazem Al-Zahrani</p>
+        <p class="footer-contact"><span dir="rtl">اقتراحات وتطويرات؟ تواصل معي على <a href="https://x.com/H_alzahrani_kau" target="_blank" rel="noopener noreferrer">X</a></span><span class="en" dir="ltr" lang="en">Suggestions &amp; improvements? Contact me on <a href="https://x.com/H_alzahrani_kau" target="_blank" rel="noopener noreferrer">X</a></span></p>
+      </div>
       <nav class="socials" aria-label="Social profiles">
         <a class="social" href="https://x.com/H_alzahrani_kau" target="_blank" rel="noopener noreferrer" aria-label="Hazem Al-Zahrani on X (opens in a new tab)">X</a>
         <span class="separator" aria-hidden="true">•</span>
@@ -115,6 +131,15 @@
         descriptionAr: 'مراجعة تفاعلية لمفاهيم GDP والبطالة والتضخم مع تمارين ورسوم.',
         descriptionEn: 'Interactive review of GDP, unemployment, and inflation, with exercises and graphs.',
         url: 'https://hazem-mach.github.io/macroeconomics-study/',
+        status: 'available'
+      },
+      {
+        code: 'STAT',
+        titleAr: 'الإحصاء',
+        titleEn: 'Statistics',
+        descriptionAr: 'شرح تفاعلي لأساسيات الإحصاء والاحتمالات والتوزيعات واختبار الفرضيات والارتباط والانحدار.',
+        descriptionEn: 'Interactive study of statistics fundamentals, probability, distributions, hypothesis testing, correlation, and regression.',
+        url: 'https://hazem-mach.github.io/statistics-study/',
         status: 'available'
       }
     ];
