@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="بوابة مواد دراسية تفاعلية لمساعدة الطلاب على الفهم والاستعداد للاختبارات.">
+  <meta name="theme-color" content="#173f35">
+  <title>Study Hub | Student Portal</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23173f35'/%3E%3Cpath d='M14 20l18-8 18 8-18 8-18-8zm7 7v12c7 5 15 5 22 0V27' fill='none' stroke='%23f2d384' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --ink:#15211e;--muted:#5f6e68;--paper:#f7f7f2;--surface:#ffffff;
+      --green:#173f35;--green-2:#286553;--mint:#e6f0ec;--gold:#c89e42;
+      --line:#dce4df;--shadow:0 18px 50px rgba(23,63,53,.09);--radius:22px;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Arabic","Geeza Pro","Segoe UI",Arial,sans-serif;
+    }
+    *{box-sizing:border-box;min-width:0}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);line-height:1.75;overflow-x:hidden}
+    a{color:inherit}
+    .skip{position:fixed;z-index:20;top:-70px;right:18px;background:var(--ink);color:#fff;padding:.65rem 1rem;border-radius:10px;text-decoration:none}.skip:focus{top:14px}
+    .shell{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .topbar{padding:19px 0;border-bottom:1px solid var(--line)}
+    .brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;font-weight:760;letter-spacing:-.02em}
+    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--green);color:#f4d98d;box-shadow:0 7px 18px rgba(23,63,53,.16)}
+    .brand-copy{display:flex;flex-direction:column;line-height:1.15}
+    .brand-en{direction:ltr;unicode-bidi:isolate;font-size:.72rem;font-weight:620;color:var(--muted);letter-spacing:.035em;margin-top:4px}
+    h1,h2,h3,p{overflow-wrap:anywhere}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:.72rem 1.15rem;border:1px solid var(--green);border-radius:12px;background:var(--green);color:#fff;text-decoration:none;font-weight:720;transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+    .button:hover{background:#204f42;box-shadow:0 9px 24px rgba(23,63,53,.18);transform:translateY(-1px)}
+    .button:focus-visible,.social:focus-visible{outline:3px solid #e2b854;outline-offset:4px}
+    .button[aria-disabled="true"]{cursor:not-allowed;background:#e5e9e6;border-color:#d3d9d5;color:#6c7672;box-shadow:none;transform:none}
+    .button .en{direction:ltr;unicode-bidi:isolate;font-size:.78em;font-weight:560;opacity:.84}
+    .courses{padding:38px 0 72px}
+    .section-head{margin-bottom:26px}
+    .section-head h2{margin:0;font-size:clamp(2rem,4vw,3.2rem);line-height:1.16;letter-spacing:-.035em}
+    .section-head .en{display:block;direction:ltr;unicode-bidi:isolate;text-align:right;font-size:.5em;color:var(--green-2);font-weight:580;margin-top:7px}
+    .course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .course-card{display:flex;flex-direction:column;min-height:330px;padding:27px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:0 6px 24px rgba(23,63,53,.045);transition:border-color .16s ease,transform .16s ease,box-shadow .16s ease}
+    .course-card:hover{border-color:#b8d0c7;transform:translateY(-2px);box-shadow:var(--shadow)}
+    .card-top{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .course-icon{display:grid;place-items:center;width:68px;height:48px;border-radius:15px;background:var(--mint);color:var(--green);font-weight:800;font-size:.88rem;letter-spacing:.02em;direction:ltr;unicode-bidi:isolate}
+    .status{display:inline-flex;align-items:center;gap:7px;padding:.34rem .65rem;border-radius:999px;background:#e7f3ed;color:#1e694e;font-size:.76rem;font-weight:740;white-space:nowrap}
+    .status:before{content:"";width:7px;height:7px;border-radius:50%;background:#2b8b68}
+    .status.coming-soon{background:#f1eee5;color:#776743}.status.coming-soon:before{background:#ae8b3e}
+    .status .en{direction:ltr;unicode-bidi:isolate;font-weight:600}
+    .course-card h3{margin:29px 0 0;font-size:1.75rem;line-height:1.2;letter-spacing:-.025em}
+    .course-card h3 .en{display:block;direction:ltr;unicode-bidi:isolate;text-align:right;color:var(--green-2);font-size:.62em;font-weight:600;margin-top:6px}
+    .description{margin:18px 0 25px;color:var(--muted)}
+    .description .en{display:block;direction:ltr;unicode-bidi:isolate;text-align:left;margin-top:9px;color:#485851;font-size:.92em}
+    .course-card .button{align-self:flex-start;margin-top:auto}
+    footer{border-top:1px solid var(--line);padding:27px 0 34px;color:var(--muted)}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .credit{margin:0;direction:ltr;unicode-bidi:isolate;font-size:.9rem}
+    .socials{display:flex;align-items:center;gap:10px;direction:ltr}
+    .socials .separator{color:#9da9a4;user-select:none}
+    .social{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 .72rem;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--green);text-decoration:none;font-weight:720}
+    .social:hover{border-color:#abc8bd;background:var(--mint)}
+    @media(max-width:760px){
+      .shell{width:min(100% - 28px,1120px)}.course-grid{grid-template-columns:1fr}.course-card{min-height:300px}.courses{padding:28px 0 58px}.footer-inner{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:430px){
+      .topbar{padding:15px 0}.brand-mark{width:36px;height:36px}.section-head{margin-bottom:20px}.section-head h2{font-size:1.9rem}.section-head .en{text-align:left;font-size:.52em}.course-card{padding:20px;min-height:0}.course-card h3{font-size:1.55rem;margin-top:23px}.card-top{align-items:flex-start}.status{white-space:normal}.description{margin:15px 0 22px}.button{width:100%}.social{min-width:0}.footer-inner{gap:12px}.socials{width:100%}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.course-card{transition:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#courses">انتقل إلى المواد</a>
+  <header class="topbar shell">
+    <a class="brand" href="#top" aria-label="Study Hub home">
+      <span class="brand-mark" aria-hidden="true">س</span>
+      <span class="brand-copy"><span dir="ltr">Study Hub</span><span class="brand-en" dir="ltr">Student Portal</span></span>
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="courses" id="courses" aria-labelledby="courses-title">
+      <div class="shell">
+        <div class="section-head">
+          <h2 id="courses-title">اختر مادتك<span class="en" dir="ltr" lang="en">Choose Your Course</span></h2>
+        </div>
+        <div class="course-grid" id="courseGrid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner shell">
+      <p class="credit">Created by Hazem Al-Zahrani</p>
+      <nav class="socials" aria-label="Social profiles">
+        <a class="social" href="https://x.com/H_alzahrani_kau" target="_blank" rel="noopener noreferrer" aria-label="Hazem Al-Zahrani on X (opens in a new tab)">X</a>
+        <span class="separator" aria-hidden="true">•</span>
+        <a class="social" href="https://www.linkedin.com/in/hazem-alzahrani-kau/" target="_blank" rel="noopener noreferrer" aria-label="Hazem Al-Zahrani on LinkedIn (opens in a new tab)">LinkedIn</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    'use strict';
+    const courses = [
+      {
+        code: 'MICRO',
+        titleAr: 'الاقتصاد الجزئي',
+        titleEn: 'Microeconomics',
+        descriptionAr: 'شرح تفاعلي للفصول الداخلة في الاختبار مع رسوم واختبارات ومراجعة.',
+        descriptionEn: 'Interactive explanations for the exam chapters, with graphs, quizzes, and review.',
+        url: 'https://hazem-mach.github.io/microeconomics-study/',
+        status: 'available'
+      },
+      {
+        code: 'MACRO',
+        titleAr: 'الاقتصاد الكلي',
+        titleEn: 'Macroeconomics',
+        descriptionAr: 'مراجعة تفاعلية لمفاهيم GDP والبطالة والتضخم مع تمارين ورسوم.',
+        descriptionEn: 'Interactive review of GDP, unemployment, and inflation, with exercises and graphs.',
+        url: 'https://hazem-mach.github.io/macroeconomics-study/',
+        status: 'available'
+      }
+    ];
+
+    const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+
+    function courseCard(course) {
+      const available = course.status === 'available' && Boolean(course.url);
+      const status = available
+        ? '<span class="status"><span>متاح</span><span class="en" dir="ltr">Available</span></span>'
+        : '<span class="status coming-soon"><span>قريبًا</span><span class="en" dir="ltr">Coming Soon</span></span>';
+      const action = available
+        ? `<a class="button" href="${escapeHtml(course.url)}"><span>افتح المادة</span><span class="en" dir="ltr">Open Course</span></a>`
+        : '<span class="button" aria-disabled="true"><span>قريبًا</span><span class="en" dir="ltr">Coming Soon</span></span>';
+      return `<article class="course-card">
+        <div class="card-top"><span class="course-icon" aria-hidden="true">${escapeHtml(course.code || 'COURSE')}</span>${status}</div>
+        <h3><span dir="rtl">${escapeHtml(course.titleAr)}</span><span class="en" dir="ltr" lang="en">${escapeHtml(course.titleEn)}</span></h3>
+        <p class="description"><span dir="rtl">${escapeHtml(course.descriptionAr)}</span><span class="en" dir="ltr" lang="en">${escapeHtml(course.descriptionEn)}</span></p>
+        ${action}
+      </article>`;
+    }
+
+    function renderCourses(list = courses) {
+      document.querySelector('#courseGrid').innerHTML = list.map(courseCard).join('');
+    }
+
+    window.studyHub = { courses, renderCourses };
+    renderCourses();
+  </script>
+</body>
+</html>
