@@ -150,6 +150,16 @@
         descriptionEn: 'Interactive study site for probability, probability distributions, sampling, and the Central Limit Theorem for Midterm 1.',
         url: 'https://hazem-mach.github.io/stat271-study/',
         status: 'available'
+      },
+      {
+        code: 'BUS 201',
+        titleAr: 'المحادثة المهنية',
+        titleEn: 'Professional Business Speaking',
+        descriptionAr: 'موقع تفاعلي لمراجعة Business English للميد، يشمل المفردات والقواعد واللغة الوظيفية والتدريب ومحاكاة الاختبار.',
+        descriptionEn: 'Interactive Business English study site for midterm preparation, including vocabulary, grammar, functional language, practice, and exam simulation.',
+        url: 'https://hazem-mach.github.io/bus201-study/',
+        status: 'available',
+        badge: 'Beta · Midterm'
       }
     ];
 
@@ -166,6 +176,7 @@
       return `<article class="course-card">
         <div class="card-top"><span class="course-icon" aria-hidden="true">${escapeHtml(course.code || 'COURSE')}</span>${status}</div>
         <h3><span dir="rtl">${escapeHtml(course.titleAr)}</span><span class="en" dir="ltr" lang="en">${escapeHtml(course.titleEn)}</span></h3>
+        ${course.badge ? `<p><span class="status" dir="ltr">${escapeHtml(course.badge)}</span></p>` : ''}
         <p class="description"><span dir="rtl">${escapeHtml(course.descriptionAr)}</span><span class="en" dir="ltr" lang="en">${escapeHtml(course.descriptionEn)}</span></p>
         ${action}
       </article>`;
